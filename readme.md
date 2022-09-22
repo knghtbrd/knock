@@ -35,6 +35,10 @@ Knock should work on any ACSM file, but it has been specifically verified to wor
 
 Before buying your ebook, check if it is available for free on [Project Gutenberg](https://gutenberg.org/).
 
+## Caveat
+
+Every book can **only be downloaded once** and then remains locked. Treat the generated epub/pdf files carefully.
+
 ## Contributing
 
 Install [Nix](https://github.com/NixOS/nix) if you don't have it. Enable [flakes](https://nixos.wiki/wiki/Flakes) if you haven't.
