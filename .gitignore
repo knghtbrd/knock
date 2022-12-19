@@ -1,3 +1,7 @@
 result
 .vscode
 todo.md
+*.o
+*.a
+*.d
+*.so
