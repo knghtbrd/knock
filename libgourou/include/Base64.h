@@ -25,6 +25,10 @@
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+#ifndef uint32_t
+#include <stdint.h>
+#endif
+
 #include <string>
 
 namespace macaron {
