@@ -28,6 +28,10 @@
 
 #include <pugixml.hpp>
 
+#ifndef uint8_t
+#include <stdint.h>
+#endif
+
 #ifndef HOBBES_DEFAULT_VERSION
 #define HOBBES_DEFAULT_VERSION  "10.0.4"
 #endif
@@ -63,7 +67,7 @@ namespace gourou
 	 * @param deviceKeyFile   Path of devicesalt
 	 */
         DRMProcessor(DRMProcessorClient* client, const std::string& deviceFile, const std::string& activationFile, const std::string& deviceKeyFile);
-	
+
 	~DRMProcessor();
 
 	/**
@@ -80,7 +84,7 @@ namespace gourou
 	 * During this operation, DRM information is added into downloaded file
 	 *
 	 * @param item            Item from fulfill() method
-	 * @param path            Output file path 
+	 * @param path            Output file path
 	 * @param resume          false if target file should be truncated, true to try resume download
 	 *
 	 * @return Type of downloaded item
@@ -89,7 +93,7 @@ namespace gourou
 
 	/**
 	 * @brief SignIn into ACS Server (required to activate device)
-	 * 
+	 *
 	 * @param adobeID         AdobeID username
 	 * @param adobePassword   Adobe password
 	 */
@@ -107,7 +111,7 @@ namespace gourou
 	 * @param operatorURL     URL of operator that loans this book
 	 */
 	void returnLoan(const std::string& loanID, const std::string& operatorURL);
-	
+
 	/**
 	 * @brief Create a new ADEPT environment (device.xml, devicesalt and activation.xml).
 	 *
@@ -179,7 +183,7 @@ namespace gourou
 	 * @brief Export clear private license key into path
 	 */
 	void exportPrivateLicenseKey(std::string path);
-	
+
 	/**
 	 * @brief Get current user
 	 */
@@ -194,7 +198,7 @@ namespace gourou
 	 * @brief Get current client
 	 */
 	DRMProcessorClient* getClient() { return client; }
-		
+
 	/**
 	 * @brief Remove ADEPT DRM
 	 * Warning: for PDF format, filenameIn must be different than filenameOut
@@ -206,14 +210,14 @@ namespace gourou
 	 * @param encryptionKeySize  Size of encryption key (if provided)
 	 */
 	void removeDRM(const std::string& filenameIn, const std::string& filenameOut, ITEM_TYPE type, const unsigned char* encryptionKey=0, unsigned encryptionKeySize=0);
-	
+
     private:
 	gourou::DRMProcessorClient* client;
         gourou::Device* device;
         gourou::User* user;
-	
+
         DRMProcessor(DRMProcessorClient* client);
-	
+
 	void pushString(void* sha_ctx, const std::string& string);
 	void pushTag(void* sha_ctx, uint8_t tag);
 	void hashNode(const pugi::xml_node& root, void *sha_ctx, std::map<std::string,std::string> nsHash);
