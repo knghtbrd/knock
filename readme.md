@@ -15,6 +15,14 @@ Convert ACSM files to PDF/EPUBs with one command on Linux ([and MacOS very soon]
 1. Run `./knock ./path/to/book.acsm` to perform the conversion.
 1. Run `mv knock ~/.local/bin` to allow it to be run from anywhere (might not work on some distributions).
 
+### openSUSE
+
+For compilation, you need to install the following dependencies:
+
+~~~sh
+zypper in libopenssl-devel zlib-devel libcurl-devel pugixml-devel libzip-devel
+~~~
+
 ### Nix and NixOS (with [flakes](https://nixos.wiki/wiki/Flakes) enabled)
 
 If you are on a system with [Nix](https://github.com/NixOS/nix), you can use the following.
